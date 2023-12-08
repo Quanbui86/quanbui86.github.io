@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login page</title>
+	<style>
+		body {
+			margin: 0;
+			padding-left: 20px;
+			box-sizing: border-box;
+		}
+		input {
+			box-sizing: border-box;
+			margin-bottom: 10px;
+			width: 200px;
+		}
+		label {
+			width: 100px;
+			color: red;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+		button {
+			width: 200px;
+		}
+		.login-input {
+			color: green
+		}
+	</style>
+	
+</head>
+
+<body>
+	<main>
+		<section id="logSection">
+			<h1>Login Form</h1>
+            <p name="welcome">“Please enter your username and password.”</p>
+            <p name="loginSuccess" style="display: none">
+                “<strong style="color: green;">Success!</strong>
+                 You will be redirected to the Home page shortly...”</p>
+			</p>
+			<form onsubmit="handleLogin()">
+				<label for="logName" class="login-input">Username</label>
+				<input id="logName" type="text" placeholder="name" name="logName"/>
+				<label for="logPass" class="login-input">Password</label>
+				<input id="logPass" type="password" placeholder="password" name="logPass"/>
+				<input type="submit" value="Login">
+			</form>
+		</section>
+	</main>
+    <script>
+		function handleLogin() {
+            // Ngăn trang không load lại khi submit form
+			event.preventDefault();
+            //Khai báo biến, function - gán các biến vào các elements, value
+            let welcome = document.querySelector("[name='welcome']")
+            let loginSuccess = document.querySelector("[name='loginSuccess']")
+            let logName = document.querySelector("[name='logName']").value
+            let logPass = document.querySelector("[name='logPass']").value
+            let auth = false;
+            const Redirect = () =>{
+                window.location.replace('./index.html')
+            }
+            // Kiểm tra các biến với giá trị đã lưu trong localStorage
+            // Kiểm tra logName có tồn tại trong localStorage không? => logPass có trùng với password ko?
+            if(localStorage.getItem(logName)){
+                password = JSON.parse(localStorage.getItem(logName)).password
+                if(logPass === password) {
+                    auth = true;
+                } else alert('Wrong password')
+            } else alert('Username does not exist.')
+            // Các điều kiện thõa mãn thì thông báo và chuyển trang
+            if(auth){
+                welcome.style.display = 'none';
+                loginSuccess.style.display = 'block'
+                setTimeout(Redirect, 900)
+            }
+		}
+	</script>
+</body>
+
+</html>
