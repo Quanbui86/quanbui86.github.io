@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register page</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <main>
-        <section id="regSection" class="form">
-            <h1>Register form</h1>
-            <p id="regUnSuccessMes">
-                "<strong>Error!</strong>
-                 Username exits or wrong username"
-            </p>
-            <p id="regSuccessMes">
-                “<strong>Success!</strong>
-                You will be redirected to the login page shortly...”
-            </p>
-            <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
-            <form onsubmit="handleSubmit()" class="flex-middle">
-                <label for="regName">Username</label>
-                <input id="regName" type="text" placeholder="name" />
-                <label for="regPass">Password</label>
-                <input id="regPass" type="password" placeholder="password" />
-                <label for="name">Your Name</label>
-                <input id="name" type="text" placeholder="Your Name" />
-                <label for="birth">Birthday</label>
-                <input id="birth" type="date" placeholder="Birthday" />
-                <button type="submit" value="Submit">Register</button>
-            </form>
+        <section id="regSection">
+            <div class="conntainer">
+                <h1>Register form</h1>
+                <p id="regUnSuccessMes">
+                    "<strong>Error!</strong>
+                    Username exits or wrong username"
+                </p>
+                <p id="regSuccessMes">
+                    “<strong>Success!</strong>
+                    You will be redirected to the login page shortly...”
+                </p>
+                <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
+                <form onsubmit="handleSubmit()" class="flex-middle">
+                    <label for="regName">Username</label>
+                    <input id="regName" type="text" placeholder="Username" onfocus="handleFocusUName()" name="Username"/>
+                    <label for="regPass">Password</label>
+                    <input id="regPass" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
+                    <label for="name">Your Name</label>
+                    <input id="name" type="text" placeholder="Your Name" onfocus="handleFocusName()" name="Your Name"/>
+                    <label for="birth">Birthday</label>
+                    <input id="birth" type="date" placeholder="Birthday" onfocus="handleFocusBirth()"/>
+                    <div class="return-and-login">
+                        <a type="button" href="login.html" target="_blank">Login Page</a>
+                        <button type="submit" value="Submit">Register</button>
+                    </div>                    
+                </form>
+            </div>
+            
         </section>
-        
     </main>
     <script>
         // Lệnh chuyển trang 

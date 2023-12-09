@@ -2,33 +2,52 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
+#regSection, #logSection {
+    display: flex;
+    justify-content: center;
+}
 input {
     box-sizing: border-box;
     width: 100%;
     height: 2.5rem;
     border-radius: 3px;
     border: 1px gray solid;
+    background-color: rgb(243, 243, 243);
+    padding: 10px;
+}
+input:focus {
+    border: 2px green solid !important;
+    background-color: aquamarine;
+    outline: none;
+    box-shadow: 0 0 0 4px lightblue;
 }
 label {
-    width: 100px;
+    padding: 0 5px;
     color: black;
     position: relative;
     z-index: 10;
-    background-color: aliceblue;
-    top: 1rem
+    background-color: rgb(253, 253, 253);
+    top: 1rem;
+    visibility: hidden;
+    border-radius: 3px;
+    left: 10px
 }
+
 form {
     display: flex;
     flex-direction: column;
 }
 button {
-    margin-top: 2rem;
     width: 10rem;
     height: 2.5rem;
     border-radius: 3px;
     border: 1px rgb(189, 189, 189) solid;
-    background-color: rgb(73, 121, 255);
+    background-color: rgb(41, 87, 214);
     color: aliceblue;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(53, 107, 255);
 }
 .login-input {
     color: green
@@ -46,17 +65,25 @@ h1 {
 #regSuccessMes strong {
     color: green;
 }
-.form {
+.conntainer {
+    position: absolute;
     border: solid gray 1px;
     border-radius: 3px;
-    padding: 2rem 2rem 4rem 2rem;
+    padding: 2rem 3rem 4rem 3rem;
     width: 20rem;
-    margin: 200px auto 0;
+    margin: 100px auto 0;
     text-align: center;
 }
 .flex-middle {
     display: flex;
-    justify-items: center;
     gap: 5px;
+    align-items:flex-start;
+}
+.return-and-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     align-items: center;
+    height: 100px; 
 }

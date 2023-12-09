@@ -10,20 +10,22 @@
 
 <body>
 	<main>
-		<section id="logSection" class="form">
-			<h1>Login Form</h1>
-            <p name="welcome">“Please enter your username and password.”</p>
-            <p name="loginSuccess" style="display: none">
-                “<strong style="color: green;">Success!</strong>
-                 You will be redirected to the Home page shortly...”</p>
-			</p>
-			<form onsubmit="handleLogin()" class="flex-middle">
-				<label for="logName" class="login-input">Username</label>
-				<input id="logName" type="text" placeholder="name" name="logName"/>
-				<label for="logPass" class="login-input">Password</label>
-				<input id="logPass" type="password" placeholder="password" name="logPass"/>
-				<button type="submit" value="Login">Login</button>
+		<section id="logSection">
+			<div class="conntainer">
+				<h1>Login Form</h1>
+				<p name="welcome">“Please enter your username and password.”</p>
+				<p name="loginSuccess" style="display: none">
+					“<strong style="color: green;">Success!</strong>
+					You will be redirected to the Home page shortly...”</p>
+				</p>
+				<form onsubmit="handleLogin()" class="flex-middle">
+					<label for="logName" class="login-input">Username</label>
+					<input id="logName" type="text" placeholder="name" name="logName"/>
+					<label for="logPass" class="login-input">Password</label>
+					<input id="logPass" type="password" placeholder="password" name="logPass"/>
+					<button type="submit" value="Login">Login</button>
 			</form>
+			</div>
 		</section>
 	</main>
     <script>
