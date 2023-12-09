@@ -69,7 +69,8 @@
             let userInfo = [];
             let check = false;
         // pattern để kiểm tra name và password
-        patternName = /(^[a-zA-Z0-9]{4,20}$)/;
+        patternUserName = /(^[a-zA-Z0-9]{4,20}$)/;
+        patternName = /^[a-zA-Z\x20]{4,20}$/;
         patternPass = /^.{4,16}$/
         function handleSubmit() {
             // Ngăn trang không load lại khi submit form
@@ -81,7 +82,7 @@
             // Kiểm tra username đã tồn tại trong localStorage hay chưa
             // Kiểm tra username và password có hợp lệ không
             // Các điều kiện đã thỏa mãn thì check đã xong -> true
-            if ((localStorage.getItem(username) === null) && patternName.test(username)){
+            if ((localStorage.getItem(username) === null) && patternUserName.test(username)){
                 //Xóa thông báo lỗi name
                 regUnSuccessMes.style.display = 'none'
                 if (patternPass.test(password) && patternName.test(name) && birth){
