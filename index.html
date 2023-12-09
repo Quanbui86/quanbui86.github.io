@@ -1,7 +1,24 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages. From reg-branch</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Welcome to Home Page</h1>
+    <button type="button" onclick="backToLogin(this)" value='./login.html'>Login Page</button>
+    <button type="button" onclick="backToRegister(this)" value='./register.html'>Register Page</button>
+    <script>
+      const Redirect = (e) =>{
+        window.location.replace(e.value);
+      }
+      function backToLogin(e){
+        setTimeout(()=>Redirect(e), 300);
+      }
+      function backToRegister(e){
+        setTimeout(function(){Redirect(e)}, 300);
+      }
+    </script>
+  </body>
 </html>

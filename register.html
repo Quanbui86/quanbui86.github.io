@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register page</title>
+    <style>
+        body {
+            margin: 0;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        input {
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        label {
+            width: 100px;
+            color: black;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            width: 200px;
+        }
+        .login-input {
+            color: green
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="regSection">
+            <h1>Register form</h1>
+            <p id="regUnSuccessMes" style="display: none">
+                "<strong style="color: red;">Error!</strong>
+                 Username exits or wrong username"
+            </p>
+            <p id="regSuccessMes" style="display: none">
+                “<strong style="color: green;">Success!</strong>
+                You will be redirected to the login page shortly...”
+            </p>
+            <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
+            <form onsubmit="handleSubmit()">
+                <label for="regName">Username</label>
+                <input id="regName" type="text" placeholder="name" />
+                <label for="regPass">Password</label>
+                <input id="regPass" type="password" placeholder="password" />
+                <label for="name">Your Name</label>
+                <input id="name" type="text" placeholder="Your Name" />
+                <label for="birth">Birthday</label>
+                <input id="birth" type="date" placeholder="Birthday" />
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        
+    </main>
+    <script>
+        // Lệnh chuyển trang 
+        function Redirect() {
+                window.location.href = './login.html'
+            }
+        // Khai báo các biến, function cần thiết
+            let regSuccessMes = document.getElementById('regSuccessMes')
+            let regUnSuccessMes = document.getElementById('regUnSuccessMes')
+            let userInfo = [];
+            let check = false;
+        // pattern để kiểm tra name và password
+        patternName = /(^[a-zA-Z0-9]{4,20}$)/;
+        patternPass = /^.{4,16}$/
+        function handleSubmit() {
+            // Ngăn trang không load lại khi submit form
+            event.preventDefault();
+            let username = document.getElementById('regName').value
+            let password = document.getElementById('regPass').value;
+            let name = document.getElementById('name').value
+            let birth = document.getElementById('birth').value
+            // Kiểm tra username đã tồn tại trong localStorage hay chưa
+            // Kiểm tra username và password có hợp lệ không
+            // Các điều kiện đã thỏa mãn thì check đã xong -> true
+            if ((localStorage.getItem(username) === null) && patternName.test(username)){
+                //Xóa thông báo lỗi name
+                regUnSuccessMes.style.display = 'none'
+                if (patternPass.test(password) && patternName.test(name) && birth){
+                    check = true;
+                } else alert("Create a password, name at least 4 characters.")
+            } else {
+                // Thông báo lỗi
+                regUnSuccessMes.style.display = 'block';
+            }
+            // Sau khi check xong, thực hiện:
+            // Lưu thông tin vào localStorage
+            // Thông báo thành công
+            // Chuyển trang sau 1s
+            if (check === true){
+                let userInfo = {
+                    username: username,
+                    password: password,
+                    name: name,
+                    birth: birth
+                }
+                localStorage.setItem(username, JSON.stringify(userInfo))
+                regSuccessMes.style.display = 'block';
+                setTimeout(Redirect, 1000)
+            }
+        }
+    </script>
+</body>
+
+</html>
