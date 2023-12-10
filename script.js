@@ -27,8 +27,18 @@ function handleFocusPass(){
 function handleFocusName(){
     allLabel.forEach(label => label.style.visibility = 'hidden');
     nameLabel.style.visibility = 'visible';
+    inputFields.forEach(input => {
+        input.placeholder = input.name;
+    });
+    const inputPass = document.querySelector('[id="name"]');
+    inputPass.placeholder = ''
 }
 function handleFocusBirth(){
     allLabel.forEach(label => label.style.visibility = 'hidden');
     birthLabel.style.visibility = 'visible';
+    inputFields.forEach(input => {
+        input.placeholder = input.name;
+    });
+    const inputPass = document.querySelector('[id="birth"]');
+    inputPass.placeholder = ''
 }

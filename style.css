@@ -19,7 +19,7 @@ input:focus {
     border: 2px green solid !important;
     background-color: aquamarine;
     outline: none;
-    box-shadow: 0 0 0 4px lightblue;
+    box-shadow: 0 0 0 2px lightblue;
     text-align: left;
 }
 label {
