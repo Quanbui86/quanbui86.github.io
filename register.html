@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Register page</title>
     <link type="text/css" rel="stylesheet" href="reset.css">
     <link type="text/css" rel="stylesheet" href="style.css">
@@ -24,7 +24,8 @@
                 <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
                 <form onsubmit="handleSubmit()" class="flex-middle">
                     <label for="regName">Username</label>
-                    <input id="regName" type="text" placeholder="Username" onfocus="handleFocusUName()" name="Username"/>
+                    <input 
+                        id="regName" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()" />
                     <label for="regPass">Password</label>
                     <input id="regPass" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
                     <label for="name">Your Name</label>
