@@ -14,7 +14,6 @@ input {
     border: 1px gray solid;
     background-color: rgb(243, 243, 243);
     padding: 10px;
-    font-size: 14px;
 }
 input:focus {
     border: 2px green solid !important;
@@ -22,7 +21,6 @@ input:focus {
     outline: none;
     box-shadow: 0 0 0 4px lightblue;
     text-align: left;
-    
 }
 label {
     padding: 0 5px;
