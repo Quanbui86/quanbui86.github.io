@@ -91,6 +91,4 @@ h1 {
     align-items: center;
     height: 100px; 
 }
-::placeholder {
-    font-size: 12px;
-}
+
