@@ -20,6 +20,7 @@ input:focus {
     background-color: aquamarine;
     outline: none;
     box-shadow: 0 0 0 4px lightblue;
+    text-align: left;
 }
 label {
     padding: 0 5px;
@@ -72,7 +73,7 @@ h1 {
     padding: 2rem 3rem 4rem 3rem;
     width: 90%;
     max-width: 20rem;
-    margin: 100px auto 0;
+    margin: 10vh auto 0;
     text-align: center;
 }
 .flex-middle {
@@ -87,4 +88,8 @@ h1 {
     width: 100%;
     align-items: center;
     height: 100px; 
+}
+input::placeholder {
+    color: red;
+    text-align: start;
 }
