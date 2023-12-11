@@ -25,13 +25,13 @@
                     <p id="regSuccessMes">“<strong>Success!</strong>&nbsp;You will be redirected to the login page shortly...”                    </p>
                 </div>           
                 <form onsubmit="handleSubmit()" class="flex-middle">
-                    <label for="regName">Username</label>
-                    <input id="regName" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()"/>
-                    <label for="regPass">Password</label>
-                    <input id="regPass" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
-                    <label for="name">Your Name</label>
+                    <label class="username" username">Username</label>
+                    <input id="username" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()"/>
+                    <label class="password">Password</label>
+                    <input id="password" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
+                    <label class="name">Your Name</label>
                     <input id="name" type="text" placeholder="Your Name" onfocus="handleFocusName()" name="Your Name"/>
-                    <label for="birth">Birthday</label>
+                    <label class="birth">Birthday</label>
                     <input id="birth" type="date" placeholder="Birthday" onfocus="handleFocusBirth()" name="Birthday"/>
                     <div class="return-and-login">
                         <a type="button" href="login.html">Login Page</a>
@@ -61,8 +61,8 @@
         function handleSubmit() {
             // Ngăn trang không load lại khi submit form
             event.preventDefault();
-            let username = document.getElementById('regName').value
-            let password = document.getElementById('regPass').value;
+            let username = document.getElementById('username').value
+            let password = document.getElementById('password').value;
             let name = document.getElementById('name').value
             let birth = document.getElementById('birth').value
             // Kiểm tra username đã tồn tại trong localStorage hay chưa
