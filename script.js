@@ -67,7 +67,7 @@ inputBirth.addEventListener('focus', function() {
 // Xử lí birth Label khi input birth có giá trị
 
 inputBirth.addEventListener('blur', function() {
-    if (inputUN.value){ 
+    if (inputBirth.value){ 
         birthLabel.style.opacity = '1';
         birthLabel.style.transition = 'opacity 0.5s linear'
     }else {
