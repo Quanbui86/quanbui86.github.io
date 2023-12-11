@@ -6,6 +6,58 @@ body {
     display: flex;
     justify-content: center;
 }
+.conntainer {
+    position: absolute;
+    border: solid gray 1px;
+    border-radius: 3px;
+    width: 90%;
+    max-width: 25rem;
+    text-align: center;
+    padding: 3rem;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px 0px gray;
+}
+#noti1, #noti2, #noti3 {
+    position: absolute;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 4rem;
+    z-index: 10;
+    width: calc(100% - 6rem);
+    top: calc(3rem + 28px);
+}
+#noti1 {
+    opacity: 1;
+}
+#noti2, #noti3 {
+    opacity: 0;
+}
+form {
+    margin-top: 4rem;
+}
+.flex-middle {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    align-items:flex-start;
+}
+label {
+    color: black;
+    position: relative;
+    background-color: transparent;
+    top: 33.4px;
+    border-radius: 3px;
+    left: 5px;
+    padding: 0 5px;
+    z-index: 2;
+    cursor:text;
+    opacity: 0;
+    display: none;
+    
+}
 input {
     box-sizing: border-box;
     width: 100%;
@@ -14,6 +66,7 @@ input {
     border: 1px gray solid;
     background-color: rgb(243, 243, 243);
     padding: 10px;
+    z-index: 1;
 }
 input:focus {
     border: 2px green solid !important;
@@ -21,27 +74,22 @@ input:focus {
     outline: none;
     box-shadow: 0 0 0 2px lightblue;
     text-align: left;
+    z-index: 1;
 }
-label {
-    padding: 0 5px;
+input:focus::placeholder {
+    transform: translateX(10rem);
+    transition: transform 1s ease-out, color 20s linear;
     color: black;
-    position: relative;
-    z-index: 10;
-    background-color: rgb(253, 253, 253);
-    top: 1rem;
-    visibility: hidden;
-    border-radius: 3px;
-    left: 10px
 }
-
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem + 1vh + 1vw;
+::placeholder {
+    opacity: 1;
+    z-index: 10;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 16px;
 }
 button {
     width: 50%;
-    max-width: 10rem;
+    max-width: 6rem;
     height: 2.5rem;
     border-radius: 3px;
     border: 1px rgb(189, 189, 189) solid;
@@ -52,37 +100,6 @@ button {
 button:hover {
     background-color: rgb(53, 107, 255);
 }
-.login-input {
-    color: green
-}
-h1 {
-    color: blue;
-    margin: 0;
-}
-#regUnSuccessMes, #regSuccessMes {
-    display: none;
-}
-#regUnSuccessMes strong {
-    color: red;
-}
-#regSuccessMes strong {
-    color: green;
-}
-.conntainer {
-    position: absolute;
-    border: solid gray 1px;
-    border-radius: 3px;
-    padding: calc(1rem + 1vh + 1vw) 3rem 4rem 3rem;
-    width: 90%;
-    max-width: 25rem;
-    margin: 10vh auto 0;
-    text-align: center;
-}
-.flex-middle {
-    display: flex;
-    gap: 5px;
-    align-items:flex-start;
-}
 .return-and-login {
     display: flex;
     flex-direction: row;
@@ -91,9 +108,40 @@ h1 {
     align-items: center;
     height: 100px; 
 }
+.login-input {
+    color: green
+}
+h1 {
+    color: blue;
+    margin: 0;
+}
+#regUnSuccessMes, #regSuccessMes {
+    position: relative;
+    line-height: 1rem;
+    text-align: center;
+    opacity: 1;
+    position: relative;
+}
+#instruction {
+    position: relative;
+    line-height: 1rem;
+    text-align: center;
+}
+#regUnSuccessMes strong {
+    color: red;
+}
+#regSuccessMes strong {
+    color: green;
+}
+
+
+
 input:focus {
     font-size: 14px;
 }
 input {
     font-size: 14px;
+}
+p {
+    display: block;
 }

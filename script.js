@@ -4,7 +4,13 @@ const nameLabel = document.querySelector('[for="name"]')
 const birthLabel = document.querySelector('[for="birth"]')
 const allLabel = document.querySelectorAll('label')
 const inputFields = document.querySelectorAll('input');
+const inputPass = document.querySelector('[id="regPass"]');
+const inputUN = document.querySelector('[id="regName"]');
 function handleFocusUName(){
+    
+}
+
+/*function handleFocusUName(){
     allLabel.forEach(label => label.style.visibility = 'hidden');
     unameLabel.style.visibility = 'visible';
     
@@ -13,17 +19,15 @@ function handleFocusUName(){
     });
     const inputUname = document.querySelector('[id="regName"]');
     inputUname.placeholder = ''
-}
+}*/
+
 function handleFocusPass(){
-    allLabel.forEach(label => label.style.visibility = 'hidden');
-    passLabel.style.visibility = 'visible';
-    inputFields.forEach(input => {
-        input.placeholder = input.name;
-    });
-    const inputPass = document.querySelector('[id="regPass"]');
-    inputPass.placeholder = ''
+
+    
+    
 
 }
+/*
 function handleFocusName(){
     allLabel.forEach(label => label.style.visibility = 'hidden');
     nameLabel.style.visibility = 'visible';
@@ -42,3 +46,4 @@ function handleFocusBirth(){
     const inputPass = document.querySelector('[id="birth"]');
     inputPass.placeholder = ''
 }
+*/

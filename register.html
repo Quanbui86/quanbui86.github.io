@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
     <link type="text/css" rel="stylesheet" href="reset.css">
     <link type="text/css" rel="stylesheet" href="style.css">
@@ -13,19 +13,20 @@
         <section id="regSection">
             <div class="conntainer">
                 <h1>Register form</h1>
-                <p id="regUnSuccessMes">
-                    "<strong>Error!</strong>
-                    Username exits or wrong username"
-                </p>
-                <p id="regSuccessMes">
-                    “<strong>Success!</strong>
-                    You will be redirected to the login page shortly...”
-                </p>
-                <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
+                <div id="noti1">
+                    <p id="instruction">
+                        Both the username and password must contain a minimum of 4 characters.
+                    </p>
+                </div>
+                <div id="noti2">
+                    <p id="regUnSuccessMes">"<strong>Error! </strong>&nbsp;Username exits or wrong username"</p>
+                </div>
+                <div id="noti3">
+                    <p id="regSuccessMes">“<strong>Success!</strong>&nbsp;You will be redirected to the login page shortly...”                    </p>
+                </div>           
                 <form onsubmit="handleSubmit()" class="flex-middle">
                     <label for="regName">Username</label>
-                    <input 
-                        id="regName" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()" />
+                    <input id="regName" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()"/>
                     <label for="regPass">Password</label>
                     <input id="regPass" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
                     <label for="name">Your Name</label>
@@ -47,8 +48,10 @@
                 window.location.href = './login.html'
             }
         // Khai báo các biến, function cần thiết
-            let regSuccessMes = document.getElementById('regSuccessMes')
-            let regUnSuccessMes = document.getElementById('regUnSuccessMes')
+            let noti3 = document.getElementById('noti3')
+            let noti2 = document.getElementById('noti2')
+            let noti = document.querySelectorAll('#noti1, #noti2, #noti3');
+            let noti1 = document.getElementById('noti1')
             let userInfo = [];
             let check = false;
         // pattern để kiểm tra name và password
@@ -67,13 +70,20 @@
             // Các điều kiện đã thỏa mãn thì check đã xong -> true
             if ((localStorage.getItem(username) === null) && patternUserName.test(username)){
                 //Xóa thông báo lỗi name
-                regUnSuccessMes.style.display = 'none'
+                noti1.style.opacity = '1';
+                noti2.style.opacity = '0';
+                noti3.style.opacity = '0';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+
                 if (patternPass.test(password) && patternName.test(name) && birth){
                     check = true;
                 } else alert("Create a password, name at least 4 characters.")
             } else {
                 // Thông báo lỗi
-                regUnSuccessMes.style.display = 'block';
+                noti1.style.opacity = '0';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+                noti2.style.opacity = '1';
+                noti3.style.opacity = '0';
             }
             // Sau khi check xong, thực hiện:
             // Lưu thông tin vào localStorage
@@ -87,8 +97,11 @@
                     birth: birth
                 }
                 localStorage.setItem(username, JSON.stringify(userInfo))
-                regSuccessMes.style.display = 'block';
-                setTimeout(Redirect, 1000)
+                noti1.style.opacity = '0';
+                noti2.style.opacity = '0';
+                noti3.style.opacity = '1';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+                setTimeout(Redirect, 100000)
             }
         }
     </script>
