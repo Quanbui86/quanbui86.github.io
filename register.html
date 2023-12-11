@@ -26,13 +26,13 @@
                 </div>           
                 <form onsubmit="handleSubmit()" class="flex-middle">
                     <label class="username" username">Username</label>
-                    <input id="username" type="text" placeholder="Username" name="Username" onfocus="handleFocusUName()"/>
+                    <input id="username" type="text" placeholder="Username" name="Username"/>
                     <label class="password">Password</label>
-                    <input id="password" type="password" placeholder="Password" onfocus="handleFocusPass()" name="Password"/>
+                    <input id="password" type="password" placeholder="Password" name="Password"/>
                     <label class="name">Your Name</label>
-                    <input id="name" type="text" placeholder="Your Name" onfocus="handleFocusName()" name="Your Name"/>
+                    <input id="name" type="text" placeholder="Your Name" name="Your Name"/>
                     <label class="birth">Birthday</label>
-                    <input id="birth" type="date" placeholder="Birthday" onfocus="handleFocusBirth()" name="Birthday"/>
+                    <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
                     <div class="return-and-login">
                         <a type="button" href="login.html">Login Page</a>
                         <button type="submit" value="Submit">Register</button>
@@ -65,6 +65,7 @@
             let password = document.getElementById('password').value;
             let name = document.getElementById('name').value
             let birth = document.getElementById('birth').value
+            let regSection = document.getElementById('regSection')
             // Kiểm tra username đã tồn tại trong localStorage hay chưa
             // Kiểm tra username và password có hợp lệ không
             // Các điều kiện đã thỏa mãn thì check đã xong -> true
@@ -101,7 +102,9 @@
                 noti2.style.opacity = '0';
                 noti3.style.opacity = '1';
                 for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
-                setTimeout(Redirect, 100000)
+                setTimeout(Redirect, 2000)
+                regSection.style.opacity = '0'
+				regSection.style.transition = 'opacity 2s linear'
             }
         }
     </script>

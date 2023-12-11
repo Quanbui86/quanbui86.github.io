@@ -19,7 +19,7 @@ body {
     flex-direction: column;
     box-shadow: 1px 1px 1px 0px gray;
 }
-#noti1, #noti2, #noti3 {
+#noti1, #noti2, #noti3, #noti4, #noti5 {
     position: absolute;
     display: flex;
     align-items:center;
@@ -29,10 +29,10 @@ body {
     width: calc(100% - 6rem);
     top: calc(3rem + 28px);
 }
-#noti1 {
+#noti1, #noti4 {
     opacity: 1;
 }
-#noti2, #noti3 {
+#noti2, #noti3, #noti5 {
     opacity: 0;
 }
 form {
@@ -54,7 +54,7 @@ label {
     cursor:text;
     
 }
-.username, .password, .name, .birth {
+.username, .password, .name, .birth, .logName, .logPass {
     top: 0.5rem;
     background-color: white;
     opacity: 0;

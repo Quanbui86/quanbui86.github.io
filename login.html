@@ -7,6 +7,7 @@
 	<title>Login page</title>
 	<link type="text/css" rel="stylesheet" href="reset.css">
     <link type="text/css" rel="stylesheet" href="style.css">
+	<script src="./login.js" defer></script>
 </head>
 
 <body>
@@ -14,15 +15,18 @@
 		<section id="logSection">
 			<div class="conntainer">
 				<h1>Login Form</h1>
-				<p name="welcome">“Please enter your username and password.”</p>
-				<p name="loginSuccess" style="display: none">
-					“<strong style="color: green;">Success!</strong>
-					You will be redirected to the Home page shortly...”</p>
-				</p>
+				<div id="noti4">
+					<p name="welcome">“Please enter your username and password.”</p>
+				</div>
+				<div id="noti5">
+					<p name="loginSuccess">
+						“<strong style="color: green;">Success!</strong>&nbsp;You will be redirected to the Home page shortly...”</p>
+					</p>
+				</div>
 				<form onsubmit="handleLogin()" class="flex-middle">
-					<label for="logName" class="login-input">Username</label>
+					<label class="logName" class="login-input">Username</label>
 					<input id="logName" type="text" placeholder="Username" name="logName"/>
-					<label for="logPass" class="login-input">Password</label>
+					<label class="logPass" class="login-input">Password</label>
 					<input id="logPass" type="password" placeholder="Password" name="logPass"/>
 					<div class="return-and-login">
                         <a type="button" href="register.html">Registration</a>
@@ -37,10 +41,11 @@
             // Ngăn trang không load lại khi submit form
 			event.preventDefault();
             //Khai báo biến, function - gán các biến vào các elements, value
-            let welcome = document.querySelector("[name='welcome']")
-            let loginSuccess = document.querySelector("[name='loginSuccess']")
+            let welcome = document.querySelector("[id='noti4']")
+            let loginSuccess = document.querySelector("[id='noti5']")
             let logName = document.querySelector("[name='logName']").value
             let logPass = document.querySelector("[name='logPass']").value
+			let logSection = document.getElementById('logSection')
             let auth = false;
             const Redirect = () =>{
                 window.location.replace('./index.html')
@@ -55,9 +60,11 @@
             } else alert('Username does not exist.')
             // Các điều kiện thõa mãn thì thông báo và chuyển trang
             if(auth){
-                welcome.style.display = 'none';
-                loginSuccess.style.display = 'block'
-                setTimeout(Redirect, 900)
+                welcome.style.opacity = '0';
+                loginSuccess.style.opacity = '1'
+                setTimeout(Redirect, 2000)
+				logSection.style.opacity = '0'
+				logSection.style.transition = 'opacity 2s linear'
             }
 		}
 	</script>

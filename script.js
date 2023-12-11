@@ -18,7 +18,7 @@ inputUN.addEventListener('focus', function() {
     unameLabel.style.transition = 'opacity 1s linear 0.3s'
     unameLabel.style.opacity = '1';
 });
-// Xử lí username Label khi input username có giá trị
+// Xử lí username Label khi không focus vào input hoặc input username có giá trị
 
 inputUN.addEventListener('blur', function() {
     if (inputUN.value){ 
@@ -31,7 +31,7 @@ inputUN.addEventListener('blur', function() {
 
 inputPass.addEventListener('focus', function(){
     passLabel.style.opacity = '1';
-    passLabel.style.transition = 'opacity 1s linear'
+    passLabel.style.transition = 'opacity 1s linear 0.3s'
 });
 inputPass.addEventListener('blur', function(){
     if(inputPass.value){
@@ -46,7 +46,7 @@ inputPass.addEventListener('blur', function(){
 
 inputName.addEventListener('focus', function(){
     nameLabel.style.opacity = '1';
-    nameLabel.style.transition = 'opacity 1s linear';
+    nameLabel.style.transition = 'opacity 1s linear 0.3s';
 })
 inputName.addEventListener('blur', function(){
     if(inputName.value){
@@ -74,6 +74,10 @@ inputBirth.addEventListener('blur', function() {
         birthLabel.style.opacity = '0';
         birthLabel.style.transition = 'opacity 0.5s linear'}
 });
+
+
+
+
 /*
 inputUN.addEventListener('input', function() {
     if (inputUN.value){ 
