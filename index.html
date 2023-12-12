@@ -4,21 +4,19 @@
     <meta charset="utf-8">
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" src="style.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="./index.js" defer></script>
   </head>
-  <body>
+  <body class="fade-in" name="mainPage">
     <h1>Welcome to Home Page</h1>
-    <button type="button" onclick="backToLogin(this)" value='./login.html'>Login Page</button>
-    <button type="button" onclick="backToRegister(this)" value='./register.html'>Register Page</button>
+    <button type="button" onclick="backToLogin()">Login Page</button>
+    <button type="button" onclick="backToRegister()">Register Page</button>
     <script>
-      const Redirect = (e) =>{
-        window.location.replace(e.value);
-      }
       function backToLogin(e){
-        setTimeout(()=>Redirect(e), 300);
+        setTimeout(()=>{window.location.href='login.html'}, 1300);
       }
       function backToRegister(e){
-        setTimeout(function(){Redirect(e)}, 300);
+        setTimeout(()=>{window.location.href='register.html'}, 1300);
       }
     </script>
   </body>

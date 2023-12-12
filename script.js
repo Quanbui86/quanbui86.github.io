@@ -75,7 +75,14 @@ inputBirth.addEventListener('blur', function() {
         birthLabel.style.transition = 'opacity 0.5s linear'}
 });
 
-
+// Hiệu ứng khi fade-in sử dụng DOMContentLoaded, chạy trước khi file HTML load xong
+document.addEventListener('DOMContentLoaded',()=>{
+    document.querySelector('[class="fade-in"]').style.opacity = '1'
+})
+function fadeOut(){
+   setTimeout(()=>{window.location.href='login.html'}, 300) 
+   document.body.style.opacity = '0'
+}
 
 
 /*

@@ -10,7 +10,7 @@
 	<script src="./login.js" defer></script>
 </head>
 
-<body>
+<body class="fade-in" name="loginpage">
 	<main>
 		<section id="logSection">
 			<div class="conntainer">
@@ -29,7 +29,7 @@
 					<label class="logPass" class="login-input">Password</label>
 					<input id="logPass" type="password" placeholder="Password" name="logPass"/>
 					<div class="return-and-login">
-                        <a type="button" href="register.html">Registration</a>
+                        <a type="button" onclick="fadeOut()">Registration</a>
                         <button type="submit" value="Login">Login</button>
                     </div>
 			</form>
@@ -62,10 +62,10 @@
             if(auth){
                 welcome.style.opacity = '0';
                 loginSuccess.style.opacity = '1'
-                setTimeout(Redirect, 2000)
-				logSection.style.opacity = '0'
-				logSection.style.scale = '1.5'
-				logSection.style.transition = 'opacity 2s linear, scale 2s linear'
+                setTimeout(Redirect, 1000)
+				document.querySelector('[name="loginpage"]').style.opacity = '0'
+				document.querySelector('[name="loginpage"]').style.scale = '1.2'
+				document.querySelector('[name="loginpage"]').style.transition = 'opacity 1s linear, scale 1s linear'
             }
 		}
 	</script>

@@ -36,3 +36,10 @@ logPassInput.addEventListener('blur', function() {
         logPassLabel.style.opacity = '0';
         logPassLabel.style.transition = 'opacity 0.5s linear'}
 });
+document.addEventListener('DOMContentLoaded', ()=>{
+   document.querySelector('[class="fade-in"]').style.opacity = '1'
+})
+function fadeOut(){
+    setTimeout(()=>{window.location.href='register.html'}, 300) 
+    document.body.style.opacity = '0'
+ }
