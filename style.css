@@ -1,11 +1,8 @@
 body {
     margin: 0;
     box-sizing: border-box;
-}
-.fade-in {
     opacity: 0;
 }
-
 #regSection, #logSection {
     display: flex;
     justify-content: center;
@@ -105,7 +102,7 @@ a {
 }
 button {
     width: 50%;
-    max-width: 6rem;
+    max-width: 8rem;
     height: 2.5rem;
     border-radius: 3px;
     border: 1px rgb(189, 189, 189) solid;
