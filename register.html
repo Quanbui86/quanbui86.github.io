@@ -25,12 +25,24 @@
                     <p id="regSuccessMes">“<strong>Success!</strong>&nbsp;You will be redirected to the login page shortly...”                    </p>
                 </div>           
                 <form onsubmit="handleSubmit()" class="flex-middle">
+                    <div class="errorMsgDiv">
+                        <p class="errorMsg">Edit username *</p>
+                    </div>
                     <label class="username" username">Username</label>
                     <input id="username" type="text" placeholder="Username" name="Username"/>
+                    <div class="errorMsgDiv">
+                        <p class="errorMsg">Edit password*</p>
+                    </div>
                     <label class="password">Password</label>
                     <input id="password" type="password" placeholder="Password" name="Password"/>
+                    <div class="errorMsgDiv">
+                        <p class="errorMsg">Edit Your Name*</p>
+                    </div>
                     <label class="name">Your Name</label>
                     <input id="name" type="text" placeholder="Your Name" name="Your Name"/>
+                    <div class="errorMsgDiv">
+                        <p class="errorMsg">Edit Your Birthday*</p>
+                    </div>
                     <label class="birth">Birthday</label>
                     <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
                     <div class="return-and-login">
@@ -43,10 +55,8 @@
         </section>
     </main>
     <script>
-        // Lệnh chuyển trang 
-        function Redirect() {
-                window.location.href = './login.html'
-            }
+         
+       
         // Khai báo các biến, function cần thiết
             let noti3 = document.getElementById('noti3')
             let noti2 = document.getElementById('noti2')
@@ -101,7 +111,8 @@
                 noti1.style.opacity = '0';
                 noti2.style.opacity = '0';
                 noti3.style.opacity = '1';
-                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'}
+                // Lệnh chuyển trang 
                 fadeOut('login.html')
             }
         }

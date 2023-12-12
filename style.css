@@ -44,6 +44,20 @@ form {
     display: flex;
     align-items:flex-start;
 }
+.errorMsg {
+    color: red;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+    top: -12px;
+}
+.errorMsgDiv {
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+    height: 0;
+}
+
 label {
     color: black;
     position: relative;
@@ -51,15 +65,14 @@ label {
     border-radius: 3px;
     left: 5px;
     padding: 0 5px;
-    z-index: 2;
     cursor:text;
-    
 }
 .username, .password, .name, .birth, .logName, .logPass {
     top: 0.5rem;
     background-color: white;
     opacity: 0;
     color: green;
+    z-index: 3;
 }
 input {
     box-sizing: border-box;
@@ -129,7 +142,6 @@ h1 {
     margin: 0;
 }
 #regUnSuccessMes, #regSuccessMes {
-    position: relative;
     line-height: 1rem;
     text-align: center;
     opacity: 1;
@@ -140,7 +152,7 @@ h1 {
     line-height: 1rem;
     text-align: center;
 }
-#regUnSuccessMes strong {
+#regUnSuccessMes strong{
     color: red;
 }
 #regSuccessMes strong {
