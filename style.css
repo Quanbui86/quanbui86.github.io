@@ -8,7 +8,7 @@ body {
     justify-content: center;
 }
 .conntainer {
-    position: fixed;
+    position: relative;
     border: solid gray 1px;
     border-radius: 3px;
     width: 90%;
@@ -38,41 +38,50 @@ body {
 }
 form {
     margin-top: 4rem;
+    position: relative;
 }
 .flex-middle {
     flex-direction: column;
     display: flex;
     align-items:flex-start;
 }
-.errorMsg {
-    color: red;
-    font-size: 14px;
-    position: relative;
-    z-index: 2;
-    top: -12px;
-}
+/* Thông báo lỗi input*/
 .errorMsgDiv {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content:flex-end;
     height: 0;
 }
+.errorMsg {
+    position: absolute;
+    top: 10px;
+    color: red;
+    opacity: 0.1;
+    font-size: 14px;
+    z-index: 2;
+    margin: 0;
+}
 
+/* Phần tử Label bọc ngoài Tên label*/
 label {
-    color: black;
     position: relative;
-    background-color: transparent;
-    border-radius: 3px;
-    left: 5px;
-    padding: 0 5px;
-    cursor:text;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 .username, .password, .name, .birth, .logName, .logPass {
-    top: 0.5rem;
-    background-color: white;
-    opacity: 0;
-    color: green;
+    position: absolute;
+    top: -12px;
+    left: 7px;
+    padding: 2px 5px;
+    color: black;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor:text;
     z-index: 3;
+    opacity: 0;
+    transition: all 0.5s linear 0.2s;
 }
 input {
     box-sizing: border-box;
@@ -83,7 +92,6 @@ input {
     background-color: rgb(243, 243, 243);
     padding: 10px;
     z-index: 1;
-    transition: background-color 1s ease-in
 }
 input:focus {
     border: 2px green solid !important;
@@ -92,17 +100,16 @@ input:focus {
     box-shadow: 0 0 0 2px lightblue;
     text-align: left;
     z-index: 1;
-    transition: background-color 1s ease-in
+    transition: background-color 0.5s ease-in
 }
 input:focus::placeholder {
     transform: translatey(-2rem);
     opacity: 0;
-    transition: transform 1s ease-out, color 1s linear, opacity 1s linear;
+    transition: all 0.5s linear;
     color: black;
 }
 ::placeholder {
     transform: translateX(0rem);
-    transition: transform 1s ease-out, color 1s linear, opacity 1s linear;
     opacity: 1;
     z-index: 10;
     font-family:'Times New Roman', Times, serif;
@@ -141,16 +148,10 @@ h1 {
     color: blue;
     margin: 0;
 }
-#regUnSuccessMes, #regSuccessMes {
+#regUnSuccessMes, #regSuccessMes, #instruction, .welcome, .loginSuccess {
     line-height: 1rem;
     text-align: center;
-    opacity: 1;
     position: relative;
-}
-#instruction {
-    position: relative;
-    line-height: 1rem;
-    text-align: center;
 }
 #regUnSuccessMes strong{
     color: red;
