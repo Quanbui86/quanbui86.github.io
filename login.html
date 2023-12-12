@@ -29,7 +29,7 @@
 					<label class="logPass" class="login-input">Password</label>
 					<input id="logPass" type="password" placeholder="Password" name="logPass"/>
 					<div class="return-and-login">
-                        <a type="button" onclick="fadeOut()">Registration</a>
+                        <a type="button" onclick="fadeOut('register.html')">Registration</a>
                         <button type="submit" value="Login">Login</button>
                     </div>
 			</form>
@@ -62,10 +62,7 @@
             if(auth){
                 welcome.style.opacity = '0';
                 loginSuccess.style.opacity = '1'
-                setTimeout(Redirect, 1000)
-				document.querySelector('[name="loginpage"]').style.opacity = '0'
-				document.querySelector('[name="loginpage"]').style.scale = '1.2'
-				document.querySelector('[name="loginpage"]').style.transition = 'opacity 1s linear, scale 1s linear'
+                fadeOut('index.html')
             }
 		}
 	</script>

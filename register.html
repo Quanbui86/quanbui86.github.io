@@ -34,7 +34,7 @@
                     <label class="birth">Birthday</label>
                     <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
                     <div class="return-and-login">
-                        <a type="link" name="chagePage" onclick="fadeOut()">Login Page</a>
+                        <a type="link" name="chagePage" onclick="fadeOut('login.html')">Login Page</a>
                         <button type="submit" value="Submit">Register</button>
                     </div>                    
                 </form>
@@ -102,10 +102,7 @@
                 noti2.style.opacity = '0';
                 noti3.style.opacity = '1';
                 for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
-                setTimeout(Redirect, 1000)
-                document.body.style.opacity = '0'
-				document.body.style.scale = '1.1'
-				document.body.style.transition = 'opacity 1s linear 0.5s, scale 1s linear 0.5s'
+                fadeOut('login.html')
             }
         }
     </script>
