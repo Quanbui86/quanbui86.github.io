@@ -2,94 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
-    <style>
-        body {
-            margin: 0;
-            padding-left: 20px;
-            box-sizing: border-box;
-        }
-        input {
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            width: 200px;
-        }
-        label {
-            width: 100px;
-            color: black;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        button {
-            width: 200px;
-        }
-        .login-input {
-            color: green
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="reset.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="./register.js" defer></script>
 </head>
-<body>
+<body class="fade-in">
     <main>
         <section id="regSection">
-            <h1>Register form</h1>
-            <p id="regUnSuccessMes" style="display: none">
-                "<strong style="color: red;">Error!</strong>
-                 Username exits or wrong username"
-            </p>
-            <p id="regSuccessMes" style="display: none">
-                “<strong style="color: green;">Success!</strong>
-                You will be redirected to the login page shortly...”
-            </p>
-            <p><em>Both the username and password must contain a minimum of 4 characters.</em></p>
-            <form onsubmit="handleSubmit()">
-                <label for="regName">Username</label>
-                <input id="regName" type="text" placeholder="name" />
-                <label for="regPass">Password</label>
-                <input id="regPass" type="password" placeholder="password" />
-                <label for="name">Your Name</label>
-                <input id="name" type="text" placeholder="Your Name" />
-                <label for="birth">Birthday</label>
-                <input id="birth" type="date" placeholder="Birthday" />
-                <input type="submit" value="Submit">
-            </form>
+            <div class="conntainer">
+                <h1>Register form</h1>
+                <div id="noti1">
+                    <p id="instruction">
+                        Both the username and password must contain a minimum of 4 characters.
+                    </p>
+                </div>
+                <div id="noti2">
+                    <p id="regUnSuccessMes">"<strong>Error! </strong>&nbsp;Username exits or wrong username"</p>
+                </div>
+                <div id="noti3">
+                    <p id="regSuccessMes">“<strong>Success!</strong>&nbsp;You will be redirected to the login page shortly...”                    </p>
+                </div>           
+                <form onsubmit="handleSubmit()" class="flex-middle">
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Username 4-20 characters</p></div>
+                        <label class="username"><p class="labelText">Username</p></label>
+                        <input id="username" type="text" placeholder="Username" name="Username"/>
+                    </div>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Password 4-20 characters</p></div>
+                        <label  class="password"><p class="labelText">Password</p></label>
+                        <input id="password" type="password" placeholder="Password" name="Password"/>
+                    </div>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Name (a-z)(A-Z)(4-20 characters)</p></div>
+                        <label  class="name"><p class="labelText">Your Name</p></label>
+                        <input id="name" type="text" placeholder="Your Name" name="Your Name"/>
+                    </div>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">Insert Your Birthday*</p></div>
+                        <label  class="birth"><p class="labelText">Birthday</p></label>
+                        <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
+                    </div>
+                    <div class="return-and-login">
+                        <a type="link" name="chagePage" onclick="fadeOut('login.html')">Login Page</a>
+                        <button type="submit" value="Submit">Register</button>
+                    </div>                    
+                </form>
+            </div>
+            
         </section>
-        
     </main>
     <script>
-        // Lệnh chuyển trang 
-        function Redirect() {
-                window.location.href = './login.html'
-            }
+         
+       
         // Khai báo các biến, function cần thiết
-            let regSuccessMes = document.getElementById('regSuccessMes')
-            let regUnSuccessMes = document.getElementById('regUnSuccessMes')
+            let noti3 = document.getElementById('noti3')
+            let noti2 = document.getElementById('noti2')
+            let noti = document.querySelectorAll('#noti1, #noti2, #noti3');
+            let noti1 = document.getElementById('noti1')
             let userInfo = [];
             let check = false;
         // pattern để kiểm tra name và password
-        patternName = /(^[a-zA-Z0-9]{4,20}$)/;
+        patternUserName = /(^[a-zA-Z0-9]{4,20}$)/;
+        patternName = /^[a-zA-Z\x20]{4,20}$/;
         patternPass = /^.{4,16}$/
         function handleSubmit() {
             // Ngăn trang không load lại khi submit form
             event.preventDefault();
-            let username = document.getElementById('regName').value
-            let password = document.getElementById('regPass').value;
+            let username = document.getElementById('username').value
+            let password = document.getElementById('password').value;
             let name = document.getElementById('name').value
             let birth = document.getElementById('birth').value
+            let regSection = document.getElementById('regSection')
             // Kiểm tra username đã tồn tại trong localStorage hay chưa
             // Kiểm tra username và password có hợp lệ không
             // Các điều kiện đã thỏa mãn thì check đã xong -> true
-            if ((localStorage.getItem(username) === null) && patternName.test(username)){
+            if ((localStorage.getItem(username) === null) && patternUserName.test(username)){
                 //Xóa thông báo lỗi name
-                regUnSuccessMes.style.display = 'none'
+                noti1.style.opacity = '1';
+                noti2.style.opacity = '0';
+                noti3.style.opacity = '0';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+
                 if (patternPass.test(password) && patternName.test(name) && birth){
                     check = true;
                 } else alert("Create a password, name at least 4 characters.")
             } else {
                 // Thông báo lỗi
-                regUnSuccessMes.style.display = 'block';
+                noti1.style.opacity = '0';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'} 
+                noti2.style.opacity = '1';
+                noti3.style.opacity = '0';
             }
             // Sau khi check xong, thực hiện:
             // Lưu thông tin vào localStorage
@@ -103,8 +108,12 @@
                     birth: birth
                 }
                 localStorage.setItem(username, JSON.stringify(userInfo))
-                regSuccessMes.style.display = 'block';
-                setTimeout(Redirect, 1000)
+                noti1.style.opacity = '0';
+                noti2.style.opacity = '0';
+                noti3.style.opacity = '1';
+                for (let n of noti){n.style.transition = 'opacity 800ms linear'}
+                // Lệnh chuyển trang 
+                fadeOut('login.html')
             }
         }
     </script>

@@ -5,51 +5,41 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login page</title>
-	<style>
-		body {
-			margin: 0;
-			padding-left: 20px;
-			box-sizing: border-box;
-		}
-		input {
-			box-sizing: border-box;
-			margin-bottom: 10px;
-			width: 200px;
-		}
-		label {
-			width: 100px;
-			color: red;
-		}
-		form {
-			display: flex;
-			flex-direction: column;
-		}
-		button {
-			width: 200px;
-		}
-		.login-input {
-			color: green
-		}
-	</style>
-	
+	<link type="text/css" rel="stylesheet" href="reset.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+	<script src="./login.js" defer></script>
 </head>
 
-<body>
+<body class="fade-in" name="loginpage">
 	<main>
 		<section id="logSection">
-			<h1>Login Form</h1>
-            <p name="welcome">“Please enter your username and password.”</p>
-            <p name="loginSuccess" style="display: none">
-                “<strong style="color: green;">Success!</strong>
-                 You will be redirected to the Home page shortly...”</p>
-			</p>
-			<form onsubmit="handleLogin()">
-				<label for="logName" class="login-input">Username</label>
-				<input id="logName" type="text" placeholder="name" name="logName"/>
-				<label for="logPass" class="login-input">Password</label>
-				<input id="logPass" type="password" placeholder="password" name="logPass"/>
-				<input type="submit" value="Login">
+			<div class="conntainer">
+				<h1>Login Form</h1>
+				<div id="noti4">
+					<p name="welcome">“Please enter your username and password.”</p>
+				</div>
+				<div id="noti5">
+					<p name="loginSuccess">
+						“<strong style="color: green;">Success!</strong>&nbsp;You will be redirected to the Home page shortly...”</p>
+					</p>
+				</div>
+				<form onsubmit="handleLogin()" class="flex-middle">
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Invalid username *</p></div>
+                        <label class="logName"><p class="labelText">Username</p></label>
+                        <input id="logName" type="text" placeholder="Username" name="logName"/>
+                    </div>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Invalid password*</p></div>
+                        <label class="logPass"><p class="labelText">Password</p></label>
+                        <input id="logPass" type="password" placeholder="Password" name="logPass"/>
+                    </div>                    
+					<div class="return-and-login">
+                        <a type="button" onclick="fadeOut('register.html')">Registration</a>
+                        <button type="submit" value="Login">Login</button>
+                    </div>
 			</form>
+			</div>
 		</section>
 	</main>
     <script>
@@ -57,10 +47,11 @@
             // Ngăn trang không load lại khi submit form
 			event.preventDefault();
             //Khai báo biến, function - gán các biến vào các elements, value
-            let welcome = document.querySelector("[name='welcome']")
-            let loginSuccess = document.querySelector("[name='loginSuccess']")
+            let welcome = document.querySelector("[id='noti4']")
+            let loginSuccess = document.querySelector("[id='noti5']")
             let logName = document.querySelector("[name='logName']").value
             let logPass = document.querySelector("[name='logPass']").value
+			let logSection = document.getElementById('logSection')
             let auth = false;
             const Redirect = () =>{
                 window.location.replace('./index.html')
@@ -75,9 +66,9 @@
             } else alert('Username does not exist.')
             // Các điều kiện thõa mãn thì thông báo và chuyển trang
             if(auth){
-                welcome.style.display = 'none';
-                loginSuccess.style.display = 'block'
-                setTimeout(Redirect, 900)
+                welcome.style.opacity = '0';
+                loginSuccess.style.opacity = '1'
+                fadeOut('index.html')
             }
 		}
 	</script>
