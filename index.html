@@ -8,9 +8,15 @@
     <script src="./index.js" defer></script>
   </head>
   <body class="fade-in" name="mainPage">
-    <h1>Welcome to Home Page</h1>
-    <button type="button" onclick="backToLogin()">Login Page</button>
-    <button type="button" onclick="backToRegister()">Register Page</button>
+    <section id="mainPage">
+      <div class="conntainer">
+        <h1>Welcome to Home Page</h1>
+        <div class="return-and-login">
+          <button type="button" onclick="backToLogin()">Login Page</button>
+          <button type="button" onclick="backToRegister()">Register Page</button>
+        </div>
+      </div>
+    </section>
     <script>
       function backToLogin(){
         fadeOut('login.html')
