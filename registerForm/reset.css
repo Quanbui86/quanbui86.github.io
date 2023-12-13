@@ -67,7 +67,11 @@ meter {
 ::placeholder {
     
 }
-
+input {
+    border: unset;
+    padding: 0;
+    margin: 0;
+}
 /* remove default dot (•) sign */
 ::marker {
     content: initial;

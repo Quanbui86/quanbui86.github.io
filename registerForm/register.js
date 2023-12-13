@@ -21,18 +21,15 @@ inputUN.addEventListener('focus', function() {
     unameLabel.style.opacity = '1';
     unameLabel.style.color = 'green';
     unameLabel.style.backgroundColor = 'white';
-    //unameLabel.style.transition = 'all 1s linear 0.3s'
 });
 // Xử lí username Label khi không focus vào input hoặc input username có giá trị
 
 inputUN.addEventListener('blur', function() {
     if (patternUserName.test(inputUN.value)){ 
-        //unameLabel.style.transition = 'opacity 0.5s linear'
         unameLabel.style.opacity = '1';
         document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '0'
     }else {
         unameLabel.style.opacity = '0';
-        //unameLabel.style.transition = 'opacity 0.5s linear'
         document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '1'
     }
 });
@@ -41,16 +38,13 @@ inputPass.addEventListener('focus', function(){
     passLabel.style.opacity = '1';
     passLabel.style.color = 'green';
     passLabel.style.backgroundColor = 'white';
-    //passLabel.style.transition = 'opacity 1s linear 0.3s'
 });
 inputPass.addEventListener('blur', function(){
     if(patternPass.test(inputPass.value)){
         passLabel.style.opacity = '1';
-        //passLabel.style.transition = 'opacity 1s linear';
         document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '0'
     }else {
         passLabel.style.opacity = '0';
-       // passLabel.style.transition = "opacity 0.5s linear";
         document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '1'
     }    
 });
@@ -59,16 +53,13 @@ inputName.addEventListener('focus', function(){
     nameLabel.style.opacity = '1';
     nameLabel.style.color = 'green';
     nameLabel.style.backgroundColor = 'white';
-    //nameLabel.style.transition = 'opacity 1s linear 0.3s';
 })
 inputName.addEventListener('blur', function(){
     if(patternName.test(inputName.value)){
         nameLabel.style.opacity = '1';
-        //nameLabel.style.transition = 'opacity 1s linear';
         document.getElementsByClassName('errorMsgDiv')[2].style.opacity = '0';
     }else {
         nameLabel.style.opacity = '0';
-        //nameLabel.style.transition = "opacity 0.5s linear";
         document.getElementsByClassName('errorMsgDiv')[2].style.opacity = '1'
     }
     
@@ -79,18 +70,15 @@ inputBirth.addEventListener('focus', function() {
     birthLabel.style.opacity = '1';
     birthLabel.style.color = 'green';
     birthLabel.style.backgroundColor = 'white';
-    //birthLabel.style.transition = 'opacity 1s linear 0.3s'
 });
 // Xử lí birth Label khi input birth có giá trị
 
 inputBirth.addEventListener('blur', function() {
     if (Boolean(inputBirth.value)){ 
         birthLabel.style.opacity = '1';
-        //birthLabel.style.transition = 'opacity 0.5s linear'
         document.getElementsByClassName('errorMsgDiv')[3].style.opacity = '0'
     }else {
         birthLabel.style.opacity = '0';
-        //birthLabel.style.transition = 'opacity 0.5s linear'};
         document.getElementsByClassName('errorMsgDiv')[3].style.opacity = '1'
     }
 });
@@ -106,52 +94,3 @@ function fadeOut(e){
    document.body.style.opacity = '0'
    document.body.style.transition = 'opacity 0.3s linear'
 }
-
-
-/*
-inputUN.addEventListener('input', function() {
-    if (inputUN.value){ 
-        unameLabel.style.transition = 'opacity 1s linear'
-        unameLabel.style.opacity = '1';
-    }else unameLabel.style.opacity = '0';
-});
-*/
-    // This code will be executed when the input field loses focus
-
-/*function handleFocusUName(){
-    allLabel.forEach(label => label.style.visibility = 'hidden');
-    unameLabel.style.visibility = 'visible';
-    
-    inputFields.forEach(input => {
-        input.placeholder = input.name;
-    });
-    const inputUname = document.querySelector('[id="username"]');
-    inputUname.placeholder = ''
-}*/
-
-function handleFocusPass(){
-
-    
-    
-
-}
-/*
-function handleFocusName(){
-    allLabel.forEach(label => label.style.visibility = 'hidden');
-    nameLabel.style.visibility = 'visible';
-    inputFields.forEach(input => {
-        input.placeholder = input.name;
-    });
-    const inputPass = document.querySelector('[id="name"]');
-    inputPass.placeholder = ''
-}
-function handleFocusBirth(){
-    allLabel.forEach(label => label.style.visibility = 'hidden');
-    birthLabel.style.visibility = 'visible';
-    inputFields.forEach(input => {
-        input.placeholder = input.name;
-    });
-    const inputPass = document.querySelector('[id="birth"]');
-    inputPass.placeholder = ''
-}
-*/
