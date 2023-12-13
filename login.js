@@ -1,6 +1,9 @@
 const logNameLabel = document.querySelector('[class="logName"]')
 const logNameInput = document.getElementById('logName')
 
+patternUserName = /(^[a-zA-Z0-9]{4,20}$)/;
+patternPass = /^.{4,16}$/;
+
 // Xử lí username Label khi focus
 
 logNameInput.addEventListener('focus', function() {
@@ -12,13 +15,13 @@ logNameInput.addEventListener('focus', function() {
 // Xử lí username Label khi không focus vào input hoặc input username có giá trị
 
 logNameInput.addEventListener('blur', function() {
-    if (logNameInput.value){ 
+    if (patternUserName.test(logNameInput.value)){ 
         //logNameLabel.style.transition = 'opacity 0.5s linear'
         logNameLabel.style.opacity = '1';
-        document.getElementsByClassName('errorMsg')[0].style.opacity = '0'
+        document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '0'
     }else {
         logNameLabel.style.opacity = '0';
-        document.getElementsByClassName('errorMsg')[0].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '1'
         //logNameLabel.style.transition = 'opacity 0.5s linear'
     }
 });
@@ -35,13 +38,13 @@ logPassInput.addEventListener('focus', function() {
 // Xử lí Password Label khi không focus vào input hoặc input username có giá trị
 
 logPassInput.addEventListener('blur', function() {
-    if (logPassInput.value){ 
+    if (patternPass.test(logPassInput.value)){ 
         //logPassLabel.style.transition = 'opacity 0.5s linear'
         logPassLabel.style.opacity = '1';
-        document.getElementsByClassName('errorMsg')[1].style.opacity = '0'
+        document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '0'
     }else {
         logPassLabel.style.opacity = '0';
-        document.getElementsByClassName('errorMsg')[1].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '1'
         //logPassLabel.style.transition = 'opacity 0.5s linear'
     }
 });

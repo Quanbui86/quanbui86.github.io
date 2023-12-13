@@ -24,16 +24,16 @@
 					</p>
 				</div>
 				<form onsubmit="handleLogin()" class="flex-middle">
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit username *</p>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Invalid username *</p></div>
+                        <label class="logName"><p class="labelText">Username</p></label>
+                        <input id="logName" type="text" placeholder="Username" name="logName"/>
                     </div>
-					<label class="login-input"><p class="logName">Username</p></label>
-					<input id="logName" type="text" placeholder="Username" name="logName"/>
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit password*</p>
-                    </div>
-					<label class="login-input"><p class="logPass">Password</p></label>
-					<input id="logPass" type="password" placeholder="Password" name="logPass"/>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Invalid password*</p></div>
+                        <label class="logPass"><p class="labelText">Password</p></label>
+                        <input id="logPass" type="password" placeholder="Password" name="logPass"/>
+                    </div>                    
 					<div class="return-and-login">
                         <a type="button" onclick="fadeOut('register.html')">Registration</a>
                         <button type="submit" value="Login">Login</button>

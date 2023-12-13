@@ -29,11 +29,11 @@ inputUN.addEventListener('blur', function() {
     if (patternUserName.test(inputUN.value)){ 
         //unameLabel.style.transition = 'opacity 0.5s linear'
         unameLabel.style.opacity = '1';
-        document.getElementsByClassName('errorMsg')[0].style.opacity = '0'
+        document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '0'
     }else {
         unameLabel.style.opacity = '0';
         //unameLabel.style.transition = 'opacity 0.5s linear'
-        document.getElementsByClassName('errorMsg')[0].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[0].style.opacity = '1'
     }
 });
 
@@ -47,11 +47,11 @@ inputPass.addEventListener('blur', function(){
     if(patternPass.test(inputPass.value)){
         passLabel.style.opacity = '1';
         //passLabel.style.transition = 'opacity 1s linear';
-        document.getElementsByClassName('errorMsg')[1].style.opacity = '0'
+        document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '0'
     }else {
         passLabel.style.opacity = '0';
        // passLabel.style.transition = "opacity 0.5s linear";
-        document.getElementsByClassName('errorMsg')[1].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[1].style.opacity = '1'
     }    
 });
 
@@ -65,11 +65,11 @@ inputName.addEventListener('blur', function(){
     if(patternName.test(inputName.value)){
         nameLabel.style.opacity = '1';
         //nameLabel.style.transition = 'opacity 1s linear';
-        document.getElementsByClassName('errorMsg')[2].style.opacity = '0';
+        document.getElementsByClassName('errorMsgDiv')[2].style.opacity = '0';
     }else {
         nameLabel.style.opacity = '0';
         //nameLabel.style.transition = "opacity 0.5s linear";
-        document.getElementsByClassName('errorMsg')[2].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[2].style.opacity = '1'
     }
     
 });
@@ -87,11 +87,11 @@ inputBirth.addEventListener('blur', function() {
     if (Boolean(inputBirth.value)){ 
         birthLabel.style.opacity = '1';
         //birthLabel.style.transition = 'opacity 0.5s linear'
-        document.getElementsByClassName('errorMsg')[3].style.opacity = '0'
+        document.getElementsByClassName('errorMsgDiv')[3].style.opacity = '0'
     }else {
         birthLabel.style.opacity = '0';
         //birthLabel.style.transition = 'opacity 0.5s linear'};
-        document.getElementsByClassName('errorMsg')[3].style.opacity = '1'
+        document.getElementsByClassName('errorMsgDiv')[3].style.opacity = '1'
     }
 });
 

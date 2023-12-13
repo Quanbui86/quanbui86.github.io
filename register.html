@@ -6,7 +6,7 @@
     <title>Register page</title>
     <link type="text/css" rel="stylesheet" href="reset.css">
     <link type="text/css" rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
+    <script src="./register.js" defer></script>
 </head>
 <body class="fade-in">
     <main>
@@ -25,26 +25,26 @@
                     <p id="regSuccessMes">“<strong>Success!</strong>&nbsp;You will be redirected to the login page shortly...”                    </p>
                 </div>           
                 <form onsubmit="handleSubmit()" class="flex-middle">
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit username *</p>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Username 4-20 characters</p></div>
+                        <label class="username"><p class="labelText">Username</p></label>
+                        <input id="username" type="text" placeholder="Username" name="Username"/>
                     </div>
-                    <label><p class="username">Username</p></label>
-                    <input id="username" type="text" placeholder="Username" name="Username"/>
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit password*</p>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Password 4-20 characters</p></div>
+                        <label  class="password"><p class="labelText">Password</p></label>
+                        <input id="password" type="password" placeholder="Password" name="Password"/>
                     </div>
-                    <label><p class="password">Password</p></label>
-                    <input id="password" type="password" placeholder="Password" name="Password"/>
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit Your Name*</p>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">*Name (a-z)(A-Z)(4-20 characters)</p></div>
+                        <label  class="name"><p class="labelText">Your Name</p></label>
+                        <input id="name" type="text" placeholder="Your Name" name="Your Name"/>
                     </div>
-                    <label><p class="name">Your Name</p></label>
-                    <input id="name" type="text" placeholder="Your Name" name="Your Name"/>
-                    <div class="errorMsgDiv">
-                        <p class="errorMsg">Edit Your Birthday*</p>
+                    <div class="group">
+                        <div class="errorMsgDiv"><p class="text">Insert Your Birthday*</p></div>
+                        <label  class="birth"><p class="labelText">Birthday</p></label>
+                        <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
                     </div>
-                    <label><p class="birth">Birthday</p></label>
-                    <input id="birth" type="date" placeholder="Birthday" name="Birthday"/>
                     <div class="return-and-login">
                         <a type="link" name="chagePage" onclick="fadeOut('login.html')">Login Page</a>
                         <button type="submit" value="Submit">Register</button>
